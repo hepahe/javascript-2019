@@ -285,5 +285,200 @@ switch(true) {
         console.log('The teams are equally good. ');
         break;
 }
-*/ 
+
+***********************************
+functions
+
+
+function calculateAge(birthYear) {
+    return 2019-birthYear; 
+}
+var ageHenna = calculateAge(1990);
+var ageEnsio = calculateAge(2013);
+var ageSaskia = calculateAge(2011);
+
+console.log(ageHenna, ageEnsio, ageSaskia);
+
+function yearsUntilRetirement(birthYear,firstName) {
+    var age = calculateAge(birthYear);
+    if (65-age <= 0 ) {
+        return firstName + ' has already retired!';
+    } else {
+    return firstName + ' has '+ (65-age) + ' years until retirement. ';
+    }
+}
+
+console.log(yearsUntilRetirement(1990,'Henna')); 
+console.log(yearsUntilRetirement(1960,'Tuija'));
+console.log(yearsUntilRetirement(1913,'Ensio'));  
+
+*******************************************************
+Function Statements and Expressions 
+
+
+var whatDoYouDo = function (job, firstName) {
+    switch(job) {
+        case 'teacher':
+            return firstName + ' teaches kids how to code.';
+        case 'driver':
+            return firstName+' drives kids around.';
+        case 'designer':
+            return firstName+' designs websites.';
+        default: 
+            return firstName+' has an unspecified profession. ';
+
+    }
+}
+console.log (whatDoYouDo('teacher','Ensio'));
+console.log(whatDoYouDo('','Saskia'));
+
+// when javascript expects a value -> expression 
+// if no value returned -> statements
+
+***************************************************
+Arrays
+ 
+
+var names = ['Frans','Ensio','Saskia'];
+var years = new Array(2010,2013,2011);
+console.log(names[0]);
+console.log(names);
+console.log(names.length);
+
+names[1] = 'Tesla';
+console.log(names);
+names[5] = 'Ensio';
+console.log(names);
+
+//different data types
+
+var ensio = ['ensio','heinäjärvi','2013','cat',false];
+console.log(ensio);
+
+ensio.push('blue'); // adds a value at the end of the arraylist
+ensio.unshift('Mr.'); // adds a value in the beginning of the arraylist
+console.log(ensio);
+
+ensio.pop(); // removes the last value from the end of the arraylist
+ensio.pop();
+ensio.shift(); // removes the first value from the arraylist
+console.log(ensio);
+
+console.log(ensio.indexOf('ensio')); // return the index of the value, return -1 if not in the array 
+ensio.push('designer');
+var isDesigner = ensio.indexOf('designer') === -1 ? 'Ensio is not a designer' : 'Ensio is a designer';
+console.log(isDesigner);
+
+*********************************************************************
+coding challenge 3 
+
+
+
+function tipCalculator(amountOfBill) {
+    if (amountOfBill < 50) {
+        return 0.2*amountOfBill;
+    } else if (amountOfBill >= 50 &&  amountOfBill < 200) {
+        return 0.15*amountOfBill;
+    } else {
+        return 0.1*amountOfBill;
+    }
+
+}
+
+var firstBill = 124;
+var secondBill = 48;
+var thirdBill = 268;    
+
+var firstTip = tipCalculator(firstBill);
+var secondTip = tipCalculator(secondBill);
+var thirdTip = tipCalculator(thirdBill);
+
+var justTips = [firstTip,secondTip,thirdTip];
+var finalAmounts = [(firstTip+firstBill),(secondBill+secondTip),(thirdBill+thirdTip)];
+
+console.log(justTips);
+console.log(finalAmounts);
+
+********************************************************************
+Objects and properties
+
+
+// object literal 
+
+
+console.log(ensio.isAGoodBoy);
+console.log(ensio['surname']);
+var animal = 'species';
+console.log(ensio[animal]);
+
+ensio.isAGoodBoy = 'false';
+console.log(ensio.isAGoodBoy);
+
+//new object syntax
+
+var saskia = new Object();
+saskia.name = 'saskia';
+saskia.surname = 'saskiasson';
+saskia.species = 'big cat';
+saskia.color = 'also brown';
+console.log(saskia);
+
+*******************************************************
+Objects and methods
+
+
+
+var ensio = {
+    name: 'ensio',
+    surname: 'heinäjärvi',
+    species: 'cat',
+    color: 'brown',
+    family: ['henna','tuija','jouni'],
+    birthYear: 2010,
+    isAGoodBoy: true,
+    calcAge: function(birthYear) {
+        this.age =  2019 - this.birthYear;
+    }
+
+};  
+
+ ensio.calcAge();
+ console.log(ensio); 
+ **************************************************
+ CODING CHALLENGE 4
+
+ 
+var mark = {
+    name: 'mark markson',
+    mass: 78,
+    height: 1.69,
+    calcBMI: function () {
+        this.bmi = this.mass / (this.height*this.height);
+        return this.bmi;
+    }
+};
+
+var john = {
+    name: 'john johnson',
+    mass: 78,
+    height: 1.69,
+    calcBMI: function () {
+        this.bmi = this.mass / (this.height*this.height);
+        return this.bmi;
+    }
+};
+
+if (mark.calcBMI() > john.calcBMI()) {
+    console.log(mark.name+' has higher BMI.');
+} else if (mark.calcBMI() < john.calcBMI()) {
+    console.log(john.name+ ' has higher BMI.');
+} else {
+    console.log(mark.name+' and '+john.name+' have equally high BMI');
+}
+**************************************************************************
+Loops and iteration 
+
+*/
+
+ 
 

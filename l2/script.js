@@ -478,7 +478,127 @@ if (mark.calcBMI() > john.calcBMI()) {
 **************************************************************************
 Loops and iteration 
 
-*/
 
+
+for (var i = 0; i < 10; i+= 2) {
+    console.log(i);
+}
+
+for (var i = 0; i<ensio.length;i++) {
+    console.log(ensio[i]);
+}
  
+
+var i = 0;
+while (i < ensio.length) {
+    console.log(ensio[i]);
+    i++;
+}
+
+
+var ensio = ['ensio','kissa', 6, true,'good boy'];
+for (var i = 0; i<ensio.length; i++) {
+    if (typeof ensio[i] !== 'string') continue;
+    console.log(ensio[i]);
+}
+
+for (var i = 0; i<ensio.length; i++) {
+    if (typeof ensio[i] !== 'string') break;
+    console.log(ensio[i]);
+    
+}
+for (var i = ensio.length-1; i>=0;i--) {
+    console.log(ensio[i]);
+}
+
+
+***********************************************************
+CODING CHALLENGE 5
+
+
+
+var billJohn = {
+    values: [124,48,268,180,42],
+    tips: [],
+    finalAmounts: [],
+    calcTip: function() {
+        for (var i = 0; i < this.values.length; i++) {
+            if (this.values[i] < 50) {
+                var tip = 0.2 * this.values[i];
+                this.tips.push(tip);
+                this.finalAmounts.push(tip+this.values[i]);
+            } else if (this.values[i] >= 50 && this.values[i]<200) {
+                var tip = 0.15 * this.values[i];
+                this.tips.push(tip);
+                this.finalAmounts.push(tip+this.values[i]);
+            } else {
+                var tip = 0.1 * this.values[i];
+                this.tips.push(tip);
+                this.finalAmounts.push(tip+this.values[i]);
+            }
+            
+            
+
+        }
+        console.log('individual tips: ' + this.tips);
+        console.log('final amounts '+this.finalAmounts);
+        
+       
+    
+    }
+};
+
+var billMark = {
+    values: [77,375,110,45],
+    tips: [],
+    finalAmounts: [],
+    calcTip: function() {
+        for (var i = 0; i < this.values.length; i++) {
+            if (this.values[i] < 100) {
+                var tip = 0.2 * this.values[i];
+                this.tips.push(tip);
+                this.finalAmounts.push(tip+this.values[i]);
+            } else if (this.values[i] >= 100 && this.values[i]<300) {
+                var tip = 0.10 * this.values[i];
+                this.tips.push(tip);
+                this.finalAmounts.push(tip+this.values[i]);
+            } else {
+                var tip = 0.25 * this.values[i];
+                this.tips.push(tip);
+                this.finalAmounts.push(tip+this.values[i]);
+            }
+            
+            
+
+        }
+        console.log('individual tips: ' + this.tips);
+        console.log('final amounts '+this.finalAmounts);
+        
+       
+    
+    }
+};
+
+billJohn.calcTip();
+billMark.calcTip();
+
+function tipCalculator (tipArray) {
+    var sum = 0;
+    for (var i = 0; i < tipArray.length; i++) {
+        sum+= tipArray[i];
+    }
+    return sum / tipArray.length;
+}
+
+console.log(tipCalculator(billJohn.tips));
+console.log(tipCalculator(billMark.tips));
+
+if (tipCalculator(billJohn.tips > billMark.tip)) {
+    console.log('John gave higher average of tips');
+} else {
+    console.log('Mark gave higher tips.'); 
+}
+
+
+*/
 

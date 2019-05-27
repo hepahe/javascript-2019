@@ -9,13 +9,44 @@ GAME RULES:
 
 */
 
-var scores, roundScore, currentPlayer, dice;
+var scores, roundScore, currentPlayer;
 
 scores = [0,0];
 roundScore = 0;
 currentPlayer = 0; // 0 = first player, 1 = second player
-dice = Math.floor(Math.random()*6) +1;
-console.log(dice);
 
-document.querySelector('#current-' + currentPlayer).textContent = dice; 
+document.getElementById('score-0').textContent = '0';
+document.getElementById('score-1').textContent = '0';
+document.getElementById('current-0').textContent = '0';
+document.getElementById('current-1').textContent = '0';
+
+
 document.querySelector('.dice').style.display = 'none';
+document.querySelector('.btn-roll').addEventListener('click',function() {
+    // 1. random number
+    var dice = Math.floor(Math.random()*6) +1;
+
+    // 2. display the results 
+    var diceDOM = document.querySelector('.dice');
+    diceDOM.style.display = 'block';
+    diceDOM.src = 'dice-' + dice + '.png';
+    // 3. update the round score IF the rolled number wasn't a 1
+    if (dice !== 1) {
+        // add score
+        roundScore+= dice;
+        document.querySelector('#current-' + currentPlayer).textContent = roundScore; 
+    } else {
+        currentPlayer === 0 ? currentPlayer = 1 : currentPlayer = 0;
+        roundScore = 0;
+        document.getElementById('score-0').textContent = 0;
+        document.getElementById('score-0').textContent = 0;
+        document.querySelector('.player-0-panel').classList.toggle('active');
+        document.querySelector('.player-1-panel').classList.toggle('active');
+        document.querySelector('.dice').style.display = 'none';
+
+        }
+
+     
+});
+
+

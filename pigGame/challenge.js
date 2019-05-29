@@ -26,28 +26,29 @@ document.querySelector('.btn-roll').addEventListener('click',function() {
         diceDOM.style.display = 'block';
         diceDOM2.style.display = 'block';
         diceDOM.src = 'dice-' + dice + '.png';
-        diceDOM.src = 'dice-' + dice2 + '.png';
+        diceDOM2.src = 'dice-' + dice2 + '.png';
 
         //continue here
         // next steps: add both dice scores to the global score
         //apply rules to both dices
-        
+
 
         // 3. update the round score IF the rolled number wasn't a 1
-        if (dice === 6 && previousRoll === 6) {
+        /*if (dice === 6 && previousRoll === 6) {
             scores[currentPlayer] = 0; 
             document.getElementById('score-'+currentPlayer).textContent = '0';
             nextPlayer();
-        } else if (dice !== 1) {
-            // add score
-            roundScore+= dice;
-            document.querySelector('#current-' + currentPlayer).textContent = roundScore; 
-        } else {
+        } else */ 
+        if (dice === 1 || dice2 ===1) {
+            console.log(dice,dice2);
             nextPlayer();
+        } else {
+            roundScore+= dice+dice2;
+            document.querySelector('#current-' + currentPlayer).textContent = roundScore; 
+        }
+        
 
-            }
-
-            previousRoll = dice;
+        //    previousRoll = dice;
         }
      
 });
@@ -74,6 +75,7 @@ document.querySelector('.btn-hold').addEventListener('click',function(){
         if (scores[currentPlayer] >= winningScore)  {
             document.querySelector('#name-'+currentPlayer).textContent = 'Winner!';
             document.querySelector('.dice').style.display = 'none';
+            document.querySelector('.dice2').style.display = 'none';
             document.querySelector('.player-'+currentPlayer+'-panel').classList.add('winner');
             document.querySelector('.player-'+currentPlayer+'-panel').classList.remove('active');
             gamePlaying = false;    
@@ -98,6 +100,7 @@ function nextPlayer() {
     document.querySelector('.player-0-panel').classList.toggle('active');
     document.querySelector('.player-1-panel').classList.toggle('active');
     document.querySelector('.dice').style.display = 'none';
+    document.querySelector('.dice2').style.display = 'none';
 
 }
 

@@ -54,7 +54,64 @@ saskia.litterType();
 frans.litterType();
 
 *************************************
-prototype chain
+creating objects: Object.create 
 *************************************
 
+var animalProto = {
+    calculateAge: function() {
+        console.log(2019-this.yearOfBirth);
+    }
+}
+
+var ensio =  Object.create(animalProto);
+ensio.name = 'Ensio';
+ensio.yearOfBirth = 2013;
+ensio.species = 'cat';
+
+var saskia = Object.create(animalProto, {
+    name: { value: 'Saskia'},
+    yearOfBirth: {value: 2011},
+    species: {value: 'big cat'}
+});
+**************************************
+Primitives vs. objects
+**************************************
 */
+
+// primitives
+var a = 15;
+var b = a;
+a = 48;
+console.log(a,b); 
+
+//objects 
+var objectOne = {
+    name: 'ensio',
+    age: '5'
+};
+
+var objectTwo = objectOne;
+
+objectOne.age = 6; 
+console.log(objectOne.age, objectTwo.age);
+
+//functions
+var age = 27;
+var obj = {
+    name: 'Saskia',
+    city: 'Turku'
+};
+
+function change(a,b) {
+    a = 30; 
+    b.city = 'Helsinki'
+};
+
+change(age,obj); 
+console.log(age, obj.city);
+
+
+
+
+
+

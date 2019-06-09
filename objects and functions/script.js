@@ -76,7 +76,7 @@ var saskia = Object.create(animalProto, {
 **************************************
 Primitives vs. objects
 **************************************
-*/
+
 
 // primitives
 var a = 15;
@@ -110,7 +110,48 @@ function change(a,b) {
 change(age,obj); 
 console.log(age, obj.city);
 
+*******************************************************************
+functions as arguments 
+*******************************************************************
 
+*/
+
+var years = [1990,1965,1937,1982,2002];
+
+function arrayCalc(arr,fn) {
+    var arrRes = [];
+    for (var i = 0; i<arr.length; i++) {
+        arrRes.push(fn(arr[i]));
+    }
+    return arrRes;
+}
+
+function calcAge(el) {
+    return 2019-el;
+}
+
+function isFullAge(el) {
+    var age = calcAge(el);
+    if (age < 18) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function maxHeartRate (el) {
+    if (el >= 18 && el <=81) {
+        return Math.round(206.9-(0.67* el)); 
+    } else {
+        return -1;  
+    }
+}
+
+var ages = arrayCalc(years,calcAge);
+var fullAges = arrayCalc(years,isFullAge);
+var maxRate = arrayCalc(ages,maxHeartRate);
+
+console.log(maxRate);
 
 
 

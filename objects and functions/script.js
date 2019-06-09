@@ -114,7 +114,7 @@ console.log(age, obj.city);
 functions as arguments 
 *******************************************************************
 
-*/
+
 
 var years = [1990,1965,1937,1982,2002];
 
@@ -153,6 +153,62 @@ var maxRate = arrayCalc(ages,maxHeartRate);
 
 console.log(maxRate);
 
+**************************************************************
+functions returning functions 
+**************************************************************
+
+
+
+function interviewQuestion(job) {
+    if (job === 'designer') {
+        return function(name) {
+            console.log(name + ', can you please explain what UX design is?');
+        }
+
+    } else if (job === 'teacher') {
+        return function(name) {
+            console.log(name+', what do you teach?');
+        }
+    }
+    else {
+        return function(name) {
+            console.log('Hello, '+name+', what do you do?');
+        }
+    }
+
+}
+
+var teacherQuestion = interviewQuestion('teacher');
+var designerQuestion = interviewQuestion('designer');
+var otherQuestion = interviewQuestion('cat');
+
+teacherQuestion('Ensio');
+designerQuestion('Saskia');
+otherQuestion('Frans');
+interviewQuestion('dog')('Jack');
+
+*******************************
+IIFE immediately invoked function expressions
+*******************************
+
+ 
+
+function game() {
+    var score = Math.random()*10;
+    console.log(score >= 5);
+}
+
+game();
+*/
+(function () {
+    var score = Math.random()*10;
+    console.log(score >= 5);    
+})();
+
+(function (goodLuck) {
+    var score = Math.random()*10;
+    console.log(score >= 5 - goodLuck);    
+})(5);
 
 
 

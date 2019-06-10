@@ -248,4 +248,46 @@ interviewQuestion('cat')('Ensio');
 ***********************************
 bind, call, apply 
 ***********************************
-*/
+
+
+var frans = {
+    name: 'frans',
+    age: 9,
+    job: 'cat',
+    presentation: function(style,timeOfDay) {
+        if (style === 'formal') {
+            console.log(timeOfDay+' mrow. I am '+this.name+', I\'m '+this.age+' years old. I\'m a '+this.job);
+        } if (style === 'friendly') {
+            console.log('meow meow '+timeOfDay+this.name+this.age+this.job);
+        }
+    }
+};
+
+var saskia = {
+    name: 'saskia',
+    age: 8,
+    job: 'big cat'
+};
+
+frans.presentation('formal','morning');
+frans.presentation.call(saskia, 'friendly', 'afternoon');
+frans.presentation('friendly','night');
+
+//ensio.presentation.apply(saskia, ['friendly','afternoon']); uses arrays 
+
+var fransFriendly = frans.presentation.bind(frans,'friendly');
+
+fransFriendly('noon');
+
+//carrying: creating an object with some preset qualities
+
+*********************************************
+coding challenge 7 
+*********************************************
+
+
+
+*/ 
+
+
+

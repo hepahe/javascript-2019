@@ -285,9 +285,42 @@ fransFriendly('noon');
 coding challenge 7 
 *********************************************
 
-
-
 */ 
+
+// 1. build a question constructor to describe a question
+// should include: question, answers, correct answer 
+
+function gameQuestion(question,answers, correctAnswer) {
+    this.question = question;
+    this.answers = answers;
+    this.correctAnswer = correctAnswer;
+};
+
+//create a couple of questions
+
+var questionOne = new gameQuestion('What is the national animal of Finland?',['Bear','Moose','Wolf'],0);
+var questionTwo = new gameQuestion('What bird is Cygnus cygnus in Latin?', ['Owl','Swan','Raven'],1);
+var q3 = new gameQuestion('How many legs do cats have?', ['One','Three','Four'],2);
+var q4 = new gameQuestion('What language do people in Åland primarily speak?', ['Swedish', 'Finnish', 'Norwegian',0]);
+
+// store the questions inside an array
+
+var questionList = [questionOne,questionTwo, q3, q4];
+
+// select one random question and log it to the console 
+
+
+function selectQuestion() {
+    var randomNumber = Math.floor(Math.random() * (questionList.length));
+    return questionList[randomNumber];
+}
+
+console.log(selectQuestion());
+
+// use the promt function to ask the user for the correct answer 
+
+
+
 
 
 
